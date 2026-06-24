@@ -1,0 +1,13 @@
+# frontend
+ecom-frontend/node_modules
+ecom-frontend/dist
+
+# backend
+sb-ecom/target
+
+# IDE
+.idea
+.vscode
+
+# OS
+.DS_Store
