@@ -87,12 +87,6 @@ public class ProductController {
         return new ResponseEntity<>(updatedProduct,HttpStatus.OK);
     }
 
-
-
-
-
-
-
     @GetMapping("/admin/products")
     public ResponseEntity<ProductResponse> getAllProductsForAdmin(
             @RequestParam(name = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,

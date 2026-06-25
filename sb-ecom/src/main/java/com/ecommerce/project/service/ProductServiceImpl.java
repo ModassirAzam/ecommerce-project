@@ -50,11 +50,12 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     AuthUtil authUtil;
 
-    @Value("${project.image}")
-    private String path;
+//    @Value("${project.image}")
+//    private String path;
+//
+//    @Value("${image.base.url}")
+//    private String imageBaseUrl;
 
-    @Value("${image.base.url}")
-    private String imageBaseUrl;
 
     @Override
     public ProductDTO addProduct(ProductDTO productDTO, Long categoryId) {
@@ -132,8 +133,12 @@ public class ProductServiceImpl implements ProductService{
         return productResponse;
     }
 
+//    private String constructImageUrl(String imageName){
+//        return imageBaseUrl.endsWith("/") ? imageBaseUrl + imageName : imageBaseUrl+ "/" + imageName;
+//    }
+
     private String constructImageUrl(String imageName){
-        return imageBaseUrl.endsWith("/") ? imageBaseUrl + imageName : imageBaseUrl+ "/" + imageName;
+        return imageName;
     }
 
     @Override
@@ -255,7 +260,9 @@ public class ProductServiceImpl implements ProductService{
 
         //upload image to server/ /file
         //Get the file name of uploaded image
-        String fileName = fileService.uploadImage(path,image);
+
+//        String fileName = fileService.uploadImage(path,image);
+        String fileName = fileService.uploadImage("", image);
 
         //updating the new file name to the product
         productFromDb.setImage(fileName);
